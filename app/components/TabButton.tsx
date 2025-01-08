@@ -1,12 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+interface TabButtonProps {
+  active: boolean;
+  selectTab: () => void;
+  children: React.ReactNode;
+}
+
 const variants = {
   default: { width: 0 },
   active: { width: "calc(100% - 0.75rem)" },
 };
 
-const TabButton = ({ active, selectTab, children }) => {
+const TabButton = ({ active, selectTab, children }: TabButtonProps) => {
   const buttonClasses = `
     relative px-4 py-2 rounded-lg text-base font-semibold
     transition-all duration-300 ease-in-out

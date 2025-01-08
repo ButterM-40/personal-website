@@ -2,7 +2,6 @@
 import React, { useTransition, useState, useEffect } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
-import { getCarouselImages } from '@/app/utils/getCarouselImages';
 
 const SkillCard = ({ title, skills, color }: { title: string, skills: string[], color: string }) => (
   <div className={`bg-[#181818] p-4 rounded-lg hover:bg-[#232323] transition-all duration-300`}>
@@ -241,8 +240,8 @@ const AboutSection = () => {
 
             <p className="text-base lg:text-lg leading-relaxed">
               <span className="block text-gray-300 hover:text-white transition-colors duration-300">
-                My passion lies in theoretical computer science, and I'm actively pursuing my goal 
-                of obtaining a PhD in this field. Alongside my academic pursuits, I'm also an avid 
+                My passion lies in theoretical computer science, and I&apos;m actively pursuing my goal 
+                of obtaining a PhD in this field. Alongside my academic pursuits, I&apos;m also an avid 
                 game developer, having created various games and projects that combine my love for 
                 programming with creative expression.
               </span>

@@ -50,6 +50,42 @@ const projectsData = [
     gitUrl: "https://github.com/ButterM-40/BlitzWaveStudioGameJam70",
     previewUrl: "https://blitzwavesstudios.itch.io/spirits-of-the-wild",
   },
+  {
+    id: 7,
+    title: "Phd Narrative LLM Verification",
+    description: "Using LLM we Professor in which they are able to verify the narrative of the game",
+    image: "/images/Projects/Advisor.jpg",
+    tag: ["All", "Game", "Research"],
+    gitUrl: "https://github.com/ButterM-40/BlitzWaveStudioGameJam70",
+    previewUrl: "https://blitzwavesstudios.itch.io/spirits-of-the-wild",
+  },
+  {
+    id: 8,
+    title: "Kirby's Adventure into PSPACE",
+    description: "Showcasing that Kirby can travel through Toggle Gadgets making the game PSPACE-Complete",
+    image: "/images/Projects/KirbyGadgets.png",
+    tag: ["All", "Game", "Research"],
+    gitUrl: "https://utrgv.hackresearch.com/site/wp-content/uploads/2024/01/HackR23.pdf#page=44",
+    previewUrl: "https://utrgv.hackresearch.com/site/wp-content/uploads/2024/01/HackR23.pdf#page=44",
+  },
+  {
+    id: 9,
+    title: "The Small Autumn",
+    description: "A cozy autumn adventure where you can magically shrink or grow objects in your neighborhood. Experience fall activities and Halloween festivities while solving puzzles with size-changing mechanics.",
+    image: "/images/Projects/SmallAutumn.jpg",
+    tag: ["All", "Game", "Research"],
+    gitUrl: "https://utrgv.hackresearch.com/site/wp-content/uploads/2024/01/HackR23.pdf#page=44",
+    previewUrl: "https://utrgv.hackresearch.com/site/wp-content/uploads/2024/01/HackR23.pdf#page=44",
+  },
+  {
+    id: 10,
+    title: "Tile Simulator",
+    description: "A more user friendly version for a Tile Simulator",
+    image: "/images/Projects/TileSimulator.png",
+    tag: ["All", "Research"],
+    gitUrl: "https://github.com/ButterM-40/Tile-Simulator",
+    previewUrl: "https://github.com/ButterM-40/Tile-Simulator",
+  },
 ];
 
 const ProjectsSection = () => {
@@ -61,9 +97,9 @@ const ProjectsSection = () => {
     setTag(newTag);
   };
 
-  const filteredProjects = projectsData.filter((project) =>
-    project.tag.includes(tag)
-  );
+  const filteredProjects = projectsData
+    .filter((project) => project.tag.includes(tag))
+    .sort((a, b) => b.id - a.id);
 
   const cardVariants = {
     initial: { y: 50, opacity: 0 },
@@ -88,8 +124,8 @@ const ProjectsSection = () => {
         />
         <ProjectTag
           onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
+          name="Research"
+          isSelected={tag === "Research"}
         />
         <ProjectTag
           onClick={handleTagChange}

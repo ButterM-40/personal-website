@@ -6,19 +6,22 @@ const variants = {
   active: { width: "calc(100% - 0.75rem)" },
 };
 
-const TabButton = ({ active, selectTab, children }: any) => {
-  const buttonClasses = active ? "text-white" : "text-[#ADB7BE]";
+const TabButton = ({ active, selectTab, children }) => {
+  const buttonClasses = `
+    relative px-4 py-2 rounded-lg text-base font-semibold
+    transition-all duration-300 ease-in-out
+    ${active 
+      ? 'text-white bg-gradient-to-r from-purple-500 to-cyan-500 shadow-lg shadow-purple-500/25' 
+      : 'text-gray-400 hover:text-white hover:bg-white/10 backdrop-blur-sm'
+    }
+  `;
 
   return (
-    <button onClick={selectTab}>
-      <p className={`mr-3 font-semibold hover:text-white ${buttonClasses}`}>
-        {children}
-      </p>
-      <motion.div
-        animate={active ? "active" : "default"}
-        variants={variants}
-        className="h-1 bg-primary-500 mt-2 mr-3"
-      ></motion.div>
+    <button onClick={selectTab} className={buttonClasses}>
+      {children}
+      {active && (
+        <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-purple-500/50 to-cyan-500/50 animate-pulse blur opacity-50"></span>
+      )}
     </button>
   );
 };
